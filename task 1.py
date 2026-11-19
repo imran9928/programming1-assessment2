@@ -30,28 +30,6 @@ class Requisition:
             self.approval_ref_num = "Not available"
 
         return self.status
-
-    def requisition_details(self, items):
-        self.item_list = items
-        self.total_price = 0.0
-
-        for item in self.item_list:
-            self.total_price += item["cost"]
-
-        return self.total_price
-
-    def approve_requisition(self):
-
-        if self.total_price < 500:
-            self.status = "Approved"
-            self.approval_ref_num = self.staff_id + str(self.req_id)[-3:]
-
-        else:
-            self.status = "Pending"
-            self.approval_ref_num = "Not available"
-
-        return self.status
-
     def respond_to_requisition(self, decision):
 
         if self.status != "Pending":
