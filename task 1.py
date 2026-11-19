@@ -55,7 +55,8 @@ class Requisition:
         return True
 
         # Question 5(e): Display one requisition
-        def display_requisition(self):
+
+    def display_requisition(self):
 
             print("\n------------------------------")
             print("Date:", self.req_date)
