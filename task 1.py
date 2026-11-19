@@ -1,6 +1,5 @@
 class Requisition:
 
-    # Question 4: Initialise shared data from Assessment 1
     def __init__(self, req_date, staff_id, staff_name, req_id):
         self.req_date = req_date
         self.staff_id = staff_id
@@ -41,7 +40,6 @@ class Requisition:
 
         return self.total_price
 
-    # Question 5(b): Automatic approval
     def approve_requisition(self):
 
         if self.total_price < 500:
@@ -121,7 +119,7 @@ class RequisitionSystem:
 
         items = []
 
-        print("\nEnter requested items.")
+        print("Enter requested items.")
         print("Type 'done' when you have finished.")
 
         while True:
@@ -167,19 +165,14 @@ class RequisitionSystem:
             self.next_id
         )
 
-        # Calculate total cost
         total = requisition.requisition_details(items)
-
-        # Check automatic approval
         requisition.approve_requisition()
 
-        # Store requisition
         self.requisition_list.append(requisition)
 
-        # Generate next requisition ID
         self.next_id += 1
 
-        print("\nRequisition submitted successfully.")
+        print("Requisition submitted successfully.")
         print("Requisition ID:", requisition.req_id)
         print("Total: $" + format(total, ".2f"))
         print("Status:", requisition.status)
@@ -203,7 +196,7 @@ class RequisitionSystem:
                     print("Only pending requisitions can be changed.")
                     return
 
-                print("\nManager Response")
+                print("Manager Response")
                 print("1: Approve")
                 print("2: Not approved")
                 print("3: Leave pending")
@@ -215,7 +208,6 @@ class RequisitionSystem:
 
         print("Requisition ID not found.")
 
-    # Question 5(e): Display all requisitions
     def display_requisitions(self):
 
         if len(self.requisition_list) == 0:
@@ -227,7 +219,7 @@ class RequisitionSystem:
         for requisition in self.requisition_list:
             requisition.display_requisition()
 
-    # Question 5(f): Requisition statistics
+
     def requisition_statistics(self):
 
         approved = 0
@@ -260,12 +252,11 @@ class RequisitionSystem:
             "not_approved": not_approved
         }
 
-    # Main menu - Lab 12 method
     def menu(self):
 
         while True:
 
-            print("\n===== REQUISITION MENU =====")
+            print(" REQUISITION MENU")
             print("1: Add Requisition")
             print("2: Manager Response")
             print("3: Display Requisitions")
@@ -293,11 +284,8 @@ class RequisitionSystem:
             else:
                 print("Invalid choice! Enter a number between 1 and 5.")
 
-
-# Run the main program
-if __name__ == "__main__":
-    system = RequisitionSystem()
-    system.menu()
+system = RequisitionSystem()
+system.menu()
 
 
 
