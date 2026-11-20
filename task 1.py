@@ -21,7 +21,7 @@ class Requisition:
 
     def approve_requisition(self):
 
-        if self.total_price < 500:
+        if self.total_price <500:
             self.status = "Approved"
             self.approval_ref_num = self.staff_id + str(self.req_id)[-3:]
 
